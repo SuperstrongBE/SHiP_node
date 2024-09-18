@@ -1,0 +1,31 @@
+{
+  "name": "node_monitor",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc -b",
+    "pm2:start": "pm2 kill && pm2 start ecosystem.config.js",
+    "pm2:start:prod": "pm2 kill && pm2 restart ecosystem.config.js --env production",
+    "pm2:watch": "pm2 kill && pm2 start --interpreter ~/.bun/bin/bun ecosystem.config.js --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^16.0.0",
+    "@types/text-encoding": "^0.0.36",
+    "@types/ws": "^7.4.6",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@blockmatic/eosio-ship-reader": "^1.2.0",
+    "@blockmatic/tsconfig": "^2.0.0",
+    "dotenv": "^16.4.5"
+  },
+  "resolutions": {
+    "@eosrio/node-abieos": "2.1.1",
+    "rxjs": "6.6.7",
+    "@blockmatic/tsconfig": "1.7.2"
+  }
+}
